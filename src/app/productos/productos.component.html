@@ -1,0 +1,84 @@
+<div class="search-container">
+    <input type="text" id="txtSearch" placeholder="Buscar" (input)="onSearchChange($event.target.value)">
+    <i class="fas fa-search"></i>
+</div>
+
+
+<div class="categorias">
+    <div class="categoria">
+        <button (click)="obtenerPeluches()">TODOS</button>
+    </div>
+    <div class="categoria">
+        <button class="acero" (click)="obtenerPeluchesTipo(1)">ACERO</button>
+    </div>
+    <div class="categoria">
+        <button class="agua" (click)="obtenerPeluchesTipo(2)">AGUA</button>
+    </div>
+    <div class="categoria">
+        <button class="bicho" (click)="obtenerPeluchesTipo(3)">BICHO</button>
+    </div>
+    <div class="categoria">
+        <button class="dragon" (click)="obtenerPeluchesTipo(4)">DRAGON</button>
+    </div>
+    <div class="categoria">
+        <button class="electrico" (click)="obtenerPeluchesTipo(5)">ELECTRICO</button>
+    </div>
+    <div class="categoria">
+        <button class="fantasma" (click)="obtenerPeluchesTipo(6)">FANTASMA</button>
+    </div>
+    <div class="categoria">
+        <button class="fuego" (click)="obtenerPeluchesTipo(7)">FUEGO</button>
+    </div>
+    <div class="categoria">
+        <button class="hada" (click)="obtenerPeluchesTipo(8)">HADA</button>
+    </div>
+    <div class="categoria">
+        <button class="hielo" (click)="obtenerPeluchesTipo(9)">HIELO</button>
+    </div>
+    <div class="categoria">
+        <button class="lucha" (click)="obtenerPeluchesTipo(10)">LUCHA</button>
+    </div>
+    <div class="categoria">
+        <button class="normal" (click)="obtenerPeluchesTipo(11)">NORMAL</button>
+    </div>
+    <div class="categoria">
+        <button class="planta" (click)="obtenerPeluchesTipo(12)">PLANTA</button>
+    </div>
+    <div class="categoria">
+        <button class="psiquico" (click)="obtenerPeluchesTipo(13)">PSIQUICO</button>
+    </div>
+    <div class="categoria">
+        <button class="roca" (click)="obtenerPeluchesTipo(14)">ROCA</button>
+    </div>
+    <div class="categoria">
+        <button class="siniestro" (click)="obtenerPeluchesTipo(15)">SINIESTRO</button>
+    </div>
+    <div class="categoria">
+        <button class="tierra" (click)="obtenerPeluchesTipo(16)">TIERRA</button>
+    </div>
+    <div class="categoria">
+        <button class="veneno" (click)="obtenerPeluchesTipo(17)">VENENO</button>
+    </div>
+    <div class="categoria">
+        <button class="volador" (click)="obtenerPeluchesTipo(18)">VOLADOR</button>
+    </div>
+</div>
+
+
+<div class="contenedor-cards">
+    <div class="tarjeta" *ngFor="let peluche of listaPeluches">
+        <img [src]="peluche.imagen" alt="{{peluche.nombre}}">
+        <p>{{peluche.nombre}}</p>
+        <p>${{peluche.precio}}</p>
+        <p>{{peluche.descripcion}}</p>
+    </div>
+    <!--
+    <div class="card">
+        <img
+            src="data:image/jpeg;base64,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">
+        <p>Nombre</p>
+        <p>Descripcion</p>
+        <p>Precio</p>
+    </div>
+-->
+</div>

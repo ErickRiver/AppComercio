@@ -1,0 +1,18 @@
+<div class="banner">
+    <img class="img-banner" src="https://4kwallpapers.com/images/wallpapers/pokemon-pikachu-3840x1080-10924.jpg"
+        alt="banner">
+</div>
+
+<div class="productos">
+    <div class="producto" *ngFor="let peluche of listaPeluches">
+        <img [src]="peluche.imagen" alt="{{peluche.nombre}}">
+        <p><strong>{{peluche.nombre}}</strong></p>
+        <p>${{peluche.precio}}</p>
+    </div>
+</div>
+
+<footer>
+    <p>Tienda de Peluches Pokémon</p>
+    <p>tiendapokemon&#64;gmail.com</p>
+    <p>477 364 69 69</p>
+</footer>
